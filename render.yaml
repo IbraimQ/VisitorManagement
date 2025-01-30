@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: visitform
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: "pip install -r requirements.txt --prefer-binary"
+    startCommand: "gunicorn app:app"
+    runtime: "python-3.9.7"
+    envVars:
+      - key: SECRET_KEY
+        value: "132"
+      - key: SQLALCHEMY_DATABASE_URI
+        value: "mssql+pyodbc://@LAPTOP-77204R0A\\SQLEXPRESS/pyVisitor?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes"
+      - key: MAIL_USERNAME
+        value: "ihemaa.4@gmail.com"
+      - key: MAIL_PASSWORD
+        value: "A123+123*/"

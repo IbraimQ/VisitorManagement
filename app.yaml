@@ -1,0 +1,14 @@
+runtime: python310
+
+entrypoint: gunicorn -b :$PORT app:app
+
+env_variables:
+  MAILJET_API_KEY: "da6ba1e0f448a281debaf01c0476fe3a"
+  MAILJET_API_SECRET: "58f716e364714d179d4875163c9a3482"
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: auto
